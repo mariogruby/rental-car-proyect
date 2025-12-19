@@ -1,6 +1,12 @@
-// sidebarRoutes.data.ts
-import React from "react";
-import { CarIcon, Calendar, Heart, ArrowLeft, Settings, Users } from "lucide-react";
+import {
+  CarIcon,
+  Calendar,
+  Heart,
+  ArrowLeft,
+  Settings,
+  Users,
+  SquareChartGantt,
+} from "lucide-react";
 import type { SidebarItemsProps } from "./SidebarItem/SidebarItem.types";
 
 export interface SidebarSection {
@@ -15,17 +21,23 @@ export const sidebarSections: SidebarSection[] = [
       {
         label: "Cars",
         href: "/dashboard",
-        icon: <CarIcon className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+        icon: (
+          <CarIcon className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        ),
       },
       {
         label: "Cars Reserves",
         href: "/reserves",
-        icon: <Calendar className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+        icon: (
+          <Calendar className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        ),
       },
       {
         label: "Loved Cars",
         href: "/loved-cars",
-        icon: <Heart className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+        icon: (
+          <Heart className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        ),
       },
     ],
   },
@@ -33,16 +45,19 @@ export const sidebarSections: SidebarSection[] = [
     title: "Admin",
     items: [
       {
-        label: "Users",
-        href: "/admin/users",
-        icon: <Users className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+        label: "Manage your cars",
+        href: "/dashboard/admin/cars-manager",
+        icon: (
+          <SquareChartGantt className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        ),
       },
       {
-        label: "Settings",
+        label: "All Reserves",
         href: "/admin/settings",
-        icon: <Settings className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+        icon: (
+          <Calendar className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        ),
       },
-      // Puedes agregar más items de admin aquí
     ],
   },
   {
@@ -51,7 +66,9 @@ export const sidebarSections: SidebarSection[] = [
       {
         label: "Logout",
         href: "/login",
-        icon: <ArrowLeft className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />,
+        icon: (
+          <ArrowLeft className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        ),
       },
     ],
   },
