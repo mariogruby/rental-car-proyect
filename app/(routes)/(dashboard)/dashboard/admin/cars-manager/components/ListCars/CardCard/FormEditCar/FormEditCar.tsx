@@ -1,8 +1,8 @@
 "use client";
-
 import React, { useState } from "react";
 import axios from "axios";
-import { SubmitButton } from "./SubmitButton";
+import { FormEditCarProps } from "./FormEditCar.types";
+import { formSchema } from "./FormEditCar.form";
 import {
   FormField,
   FormItem,
@@ -28,60 +28,55 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { UploadButton } from "@/utils/uploadthing";
+import { SubmitButton } from "./SubmitEditCarButton";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
-import { formSchema } from "./FormAddCar.form";
-import { UploadButton } from "@/utils/uploadthing";
-import { FormAddCarProps } from "./FormAddCar.types";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
-export function FormAddCar(props: FormAddCarProps) {
-  const { setOpenDialog } = props;
+export function FormEditCar(props: FormEditCarProps) {
+  const { carData, setOpenDialog } = props;
+  const [loading, setLoading] = useState(false);
+  const [photoUploaded, setPhotoUploaded] = useState(false);
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    mode: "onChange",
-    reValidateMode: "onChange",
     defaultValues: {
-      name: "",
-      cv: "",
-      transmission: "",
-      people: "",
-      photo: "",
-      engine: "",
-      type: "",
-      priceDay: "",
-      isPublish: false,
+      name: carData.name,
+      cv: carData.cv,
+      transmission: carData.transmission,
+      people: carData.people,
+      photo: carData.photo,
+      engine: carData.engine,
+      type: carData.type,
+      priceDay: carData.priceDay,
+      isPublish: carData.isPublish ? carData.isPublish : false,
     },
   });
-
-  const [photoUploaded, setPhotoUploaded] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(false);
-      const res = await axios.post("/api/car", values);
+      const res = await axios.patch(`/api/car/${carData.id}/form`, values);
       if (res.data.success) {
         setTimeout(() => {
           setOpenDialog(false);
         }, 1000);
         setLoading(true);
-        setOpenDialog(false);
-        toast.success("car created");
+        toast.success("car edited");
         router.refresh();
       }
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("something went wrong");
       setLoading(false);
       setOpenDialog(true);
-      console.log(error);
+      console.error(error);
       throw error;
     }
-    console.log(values);
   };
 
   return (
@@ -98,8 +93,8 @@ export function FormAddCar(props: FormAddCarProps) {
                   <Input placeholder="Peugeot 208" {...field} />
                 </FormControl>
                 {/* <FormDescription>
-                  This is your public display name.
-                </FormDescription> */}
+                      This is your public display name.
+                    </FormDescription> */}
                 <FormMessage />
               </FormItem>
             )}
@@ -114,8 +109,8 @@ export function FormAddCar(props: FormAddCarProps) {
                   <Input placeholder="130 CV" type="number" {...field} />
                 </FormControl>
                 {/* <FormDescription>
-                  This is your public display name.
-                </FormDescription> */}
+                      This is your public display name.
+                    </FormDescription> */}
                 <FormMessage />
               </FormItem>
             )}
@@ -306,7 +301,7 @@ export function FormAddCar(props: FormAddCarProps) {
           isValid={form.formState.isValid}
           className="mt-5"
         >
-          Create car
+          Edit car
         </SubmitButton>
       </form>
     </Form>

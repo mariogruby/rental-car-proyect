@@ -5,10 +5,10 @@ import * as React from "react";
 import { Button } from "@/components/ui/stateful-button";
 import { cn } from "@/lib/utils";
 
-interface SubmitButtonProps {
+interface SubmitEditCarButtonProps {
   onClick: () => Promise<any>;
   isValid: boolean;
-    isLoading: boolean;
+  isLoading: boolean;
   children: React.ReactNode;
   className?: string;
 }
@@ -16,10 +16,10 @@ interface SubmitButtonProps {
 export function SubmitButton({
   onClick,
   isValid,
-    isLoading,
+  isLoading,
   children,
   className,
-}: SubmitButtonProps) {
+}: SubmitEditCarButtonProps) {
   return (
     <Button
       type="submit"

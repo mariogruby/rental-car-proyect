@@ -15,13 +15,12 @@ import { useState } from "react";
 import { FormAddCar } from "../FormAddCar";
 
 export function ButtonAddCar() {
-
-  const [openDialog, setOpenDialog] = useState(false)
+  const [openDialog, setOpenDialog] = useState(false);
 
   return (
-    <Dialog open={openDialog}>
+    <Dialog open={openDialog} onOpenChange={setOpenDialog}>
       <DialogTrigger asChild>
-        <Button variant="outline" onClick={() => setOpenDialog(true)}>
+        <Button variant="outline">
           Add New car
           <PlusCircle className="ml-2" />
         </Button>
@@ -29,9 +28,9 @@ export function ButtonAddCar() {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Add car</DialogTitle>
-          <DialogDescription></DialogDescription>
+          {/* <DialogDescription></DialogDescription> */}
         </DialogHeader>
-        <FormAddCar setOpenDialog={setOpenDialog}/>
+        <FormAddCar setOpenDialog={setOpenDialog} />
       </DialogContent>
     </Dialog>
   );

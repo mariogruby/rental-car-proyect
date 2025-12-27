@@ -106,7 +106,7 @@ export const Button = ({ className, children, ...props }: ButtonProps) => {
         state === "loading" && "bg-green-500 opacity-80 cursor-wait",
         state === "success" && "bg-green-500",
         state === "error" && "bg-red-500",
-        disabled && "opacity-50  ring-offset-0 hover:ring-0",
+        disabled && "ring-offset-0 hover:ring-0",
         className
       )}
       {...buttonProps}
