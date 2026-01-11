@@ -154,15 +154,6 @@ export function CardCar(props: CardCardProps) {
 //       fill
 //       className="object-cover transition-transform duration-500 group-hover:scale-110"
 //     />
-//     {car.isPublish ? (
-//       <p className="absolute top-0 left-0 right-0 w-full p-1 text-center text-white bg-green-700">
-//         Published
-//       </p>
-//     ) : (
-//       <p className="absolute bottom-0 left-0 right-0 w-full p-1 text-center text-white bg-red-300">
-//         Not Published
-//       </p>
-//     )}
 //     {/* <Badge className="absolute top-4 left-4 bg-accent text-accent-foreground border-0">
 //       {car.type}
 //     </Badge> */}
@@ -216,13 +207,5 @@ export function CardCar(props: CardCardProps) {
 //   </CardContent>
 
 //   <CardFooter className="flex justify-between gap-x-4">
-//     <Button size="lg" className="bg-destructive hover:bg-destructive/90 rounded-4xl">
-//       <Trash className="mr-2 h-4 w-4" />
-//       Delete
-//     </Button>
-//     <Button size="lg" className="bg-green-500 hover:bg-green/90 rounded-4xl">
-//       <Edit className="mr-2 h-4 w-4" />
-//       Edit Car
-//     </Button>
 //   </CardFooter>
 // </Card>

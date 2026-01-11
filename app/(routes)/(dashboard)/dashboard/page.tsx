@@ -1,10 +1,26 @@
-export default function DashboardPage() {
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+import prisma from "@/lib/db";
+import { ListCars } from "./components/ListCars";
+
+export default async function DashboardPage() {
+  const { userId } = await auth();
+  if (!userId) return redirect("/");
+
+  const cars = await prisma.car.findMany({
+    where: {
+      isPublish: true,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
   return (
     <div>
       <div className="flex justify-between">
         <h2 className="text-2xl font-bold">List of cars</h2>
       </div>
-      <p>lorem ipsum</p>
+      <ListCars cars={cars} />
     </div>
   );
 }
