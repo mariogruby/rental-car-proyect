@@ -29,6 +29,8 @@ import { useState } from "react";
 import { addDays } from "date-fns";
 import { DateRange } from "react-day-picker";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import axios from "axios";
+import { toast } from "sonner";
 
 export function ModalAddReservation(props: ModalAddReservationProps) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -41,7 +43,18 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
     to: addDays(new Date(), 5),
   });
 
-  const onReserveCar = async (car: Car, dateSelected: DateRange) => {};
+  const onReserveCar = async (car: Car, dateSelected: DateRange) => {
+    const res = await axios.post("/api/checkout", {
+      carId: car.id,
+      priceDay: car.priceDay,
+      startDate: dateSelected.from,
+      endDate: dateSelected.to,
+      carName: car.name
+    })
+
+    window.location = res.data.url
+    toast.success("Car reserved successfully")
+  };
   return isDesktop ? (
     <AlertDialog>
       <AlertDialogTrigger asChild>

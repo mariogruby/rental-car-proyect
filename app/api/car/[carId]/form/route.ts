@@ -23,7 +23,7 @@ export async function PATCH(
       },
     });
 
-    return NextResponse.json({car, success: true, status: 200 });
+    return NextResponse.json({ car, success: true, status: 200 });
   } catch (error) {
     console.log("[CAR FROM ID]", error);
     return new NextResponse("Internal Error", { status: 500 });
