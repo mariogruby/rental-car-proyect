@@ -53,7 +53,7 @@ export const sidebarSections: SidebarSection[] = [
       },
       {
         label: "All Reserves",
-        href: "/admin/settings",
+        href: "/dashboard/admin/reserves-admin",
         icon: (
           <Calendar className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />
         ),

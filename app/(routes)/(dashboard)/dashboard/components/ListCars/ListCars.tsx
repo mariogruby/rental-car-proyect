@@ -1,3 +1,5 @@
+"use client";
+
 import type React from "react";
 import type { Car } from "@/lib/generated/prisma/client";
 import type { ListCarsProps } from "./ListCars.types";
@@ -6,8 +8,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Gauge, Cog, Fuel, Check, Heart } from "lucide-react";
 import { ModalAddReservation } from "@/components/Shared/ModalAddReservation";
+import { useLovedCars } from "@/hooks/use-loved-cars";
 
 export function ListCars({ cars }: ListCarsProps) {
+  const { lovedItems, addLovedItem, removeLovedItem } = useLovedCars();
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
       {cars.map((car: Car) => {
@@ -22,6 +26,8 @@ export function ListCars({ cars }: ListCarsProps) {
           type,
           transmission,
         } = car;
+
+        const isLoved = lovedItems.some((item) => item.id === car.id);
 
         return (
           <Card
@@ -46,9 +52,26 @@ export function ListCars({ cars }: ListCarsProps) {
 
               <button
                 aria-label="Add to favorites"
-                className="absolute top-4 right-4 p-2 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 text-white/90 transition-all duration-300 hover:bg-green-500 hover:text-white hover:scale-110 hover:rotate-12 active:scale-95"
+                onClick={() =>
+                  isLoved ? removeLovedItem(car.id) : addLovedItem(car)
+                }
+                className={`
+    absolute top-4 right-4 p-2 rounded-full backdrop-blur-sm border
+    transition-all duration-300 active:scale-95 cursor-pointer
+    ${
+      isLoved
+        ? "bg-green-500 border-green-400 text-white scale-110"
+        : "bg-black/40 border-white/10 text-white/90 hover:bg-green-500 hover:text-white hover:scale-110 hover:rotate-12"
+    }
+  `}
               >
-                <Heart size={20} className="transition-transform" />
+                <Heart
+                  size={20}
+                  className={`
+      transition-all duration-300
+      ${isLoved ? "fill-white" : "fill-transparent"}
+    `}
+                />
               </button>
 
               <div className="absolute bottom-4 right-4 rounded-xl bg-green-500 px-4 py-2.5 shadow-md shadow-green-500/40 backdrop-blur-sm transition-all duration-300 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-green-500/50">
