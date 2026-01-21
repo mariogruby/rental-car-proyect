@@ -1,9 +1,21 @@
+import { Navbar } from "@/components/Shared/Navbar";
+import { FirstBlock } from "./components/FirstBlock";
+import { SliderBrands } from "./components/SliderBrands";
+import Features from "./components/Features/Features";
+import { Marquee } from "./components/3D-Marquee";
+import { OurFleet } from "./components/OurFleet";
+import { DriveToday } from "./components/DriveToday";
+
 export default function Home() {
-    return (
-        <div>
-            <div className="h-full flex items-center justify-center">
-                Home page
-            </div>
-        </div>
-    )
+  return (
+    <div>
+      <Navbar />
+      <FirstBlock />
+      <SliderBrands />
+      <Marquee />
+      <Features />
+      <OurFleet />
+      <DriveToday />
+    </div>
+  );
 }

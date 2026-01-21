@@ -1,10 +1,11 @@
 import { motion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Logo = () => {
   return (
-    <a
-      href="/dashboard"
+    <Link
+      href="/"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black"
     >
       <Image src="/logo.svg" alt="Logo" width={30} height={30} priority />
@@ -15,14 +16,14 @@ export const Logo = () => {
       >
         Rental car
       </motion.span>
-    </a>
+    </Link>
+  );
+};
+export const LogoIcon = () => {
+  return (
+    <Link href="/" className="relative z-20 flex items-center py-1">
+      <Image src="/logo.svg" alt="Logo" width={30} height={30} priority />
+    </Link>
   );
 };
 
-export const LogoIcon = () => {
-  return (
-    <a href="/dashboard" className="relative z-20 flex items-center py-1">
-      <Image src="/logo.svg" alt="Logo" width={30} height={30} priority />
-    </a>
-  );
-};
