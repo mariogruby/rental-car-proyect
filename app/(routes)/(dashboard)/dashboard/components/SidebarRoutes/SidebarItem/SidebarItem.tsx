@@ -11,12 +11,15 @@ interface Props {
 
 export function SidebarItem({ link }: Props) {
   const pathname = usePathname() || "/";
-  const activePath = pathname === link.href
-
+  const activePath = pathname === link.href;
 
   return (
-    <SidebarLink link={link} className={cn(`items-center  rounded-lg`,
-      activePath && "bg-slate-400/20 "
-    )}/>
+    <SidebarLink
+      link={link}
+      className={cn(
+        `items-center  rounded-lg`,
+        activePath && "bg-green-500/10 "
+      )}
+    />
   );
 }

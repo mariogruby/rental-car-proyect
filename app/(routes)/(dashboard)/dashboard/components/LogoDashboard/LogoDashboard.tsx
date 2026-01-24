@@ -8,7 +8,7 @@ export const Logo = () => {
       href="/"
       className="relative z-20 flex items-center space-x-2 py-1 text-sm font-normal text-black"
     >
-      <Image src="/logo.svg" alt="Logo" width={30} height={30} priority />
+      <Image src="/logo-primary.svg" alt="Logo" width={30} height={30} priority />
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -22,7 +22,7 @@ export const Logo = () => {
 export const LogoIcon = () => {
   return (
     <Link href="/" className="relative z-20 flex items-center py-1">
-      <Image src="/logo.svg" alt="Logo" width={30} height={30} priority />
+      <Image src="/logo-primary.svg" alt="Logo" width={30} height={30} priority />
     </Link>
   );
 };

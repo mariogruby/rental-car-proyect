@@ -1,3 +1,4 @@
+// app/(public)/layout.tsx
 import { Footer } from "@/components/Shared/Footer";
 
 export default function PublicLayout({
@@ -6,8 +7,8 @@ export default function PublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen flex-col">
-      <main className="flex-1">{children}</main>
+    <div className="flex min-h-screen flex-col overflow-x-hidden">
+      <main className="flex-1 pt-2">{children}</main>
       <Footer />
     </div>
   );

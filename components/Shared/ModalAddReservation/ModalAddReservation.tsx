@@ -31,6 +31,7 @@ import { DateRange } from "react-day-picker";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import axios from "axios";
 import { toast } from "sonner";
+import { Calendar } from "lucide-react";
 
 export function ModalAddReservation(props: ModalAddReservationProps) {
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -49,22 +50,23 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
       priceDay: car.priceDay,
       startDate: dateSelected.from,
       endDate: dateSelected.to,
-      carName: car.name
-    })
+      carName: car.name,
+    });
 
-    window.location = res.data.url
-    toast.success("Car reserved successfully")
+    window.location = res.data.url;
+    toast.success("Car reserved successfully");
   };
   return isDesktop ? (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button className="bg-green-500 hover:bg-green-500 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500">
+        <Button className="bg-gradient-to-r from-green-500 to-green-600  hover:from-green-600 hover:to-green-700 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500">
+          <Calendar className="w-4 h-4" />
           Add reservation
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Select date</AlertDialogTitle>
+          <AlertDialogTitle>Select Date</AlertDialogTitle>
           <AlertDialogDescription asChild>
             <CalendarSelector
               setDateSelected={setDateSelected}
@@ -77,7 +79,7 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
             Cancel
           </AlertDialogCancel>
           <AlertDialogAction
-            className="bg-green-500 hover:bg-green-500 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500"
+            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500"
             onClick={() => onReserveCar(car, dateSelected)}
           >
             Continue
@@ -88,13 +90,14 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
   ) : (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button className="bg-green-500 hover:bg-green-500 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500">
+        <Button className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full">
+          <Calendar className="w-4 h-4" />
           Add reservation
         </Button>
       </DrawerTrigger>
       <DrawerContent className="p-6">
         <DrawerHeader className="text-left">
-          <DrawerTitle>Select date</DrawerTitle>
+          <DrawerTitle>Select Date</DrawerTitle>
           <DrawerDescription asChild>
             <CalendarSelector
               setDateSelected={setDateSelected}
@@ -109,7 +112,7 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
             </Button>
           </DrawerClose>
           <Button
-            className="bg-green-500 hover:bg-green-500 rounded-full"
+            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full"
             onClick={() => onReserveCar(car, dateSelected)}
           >
             Continue

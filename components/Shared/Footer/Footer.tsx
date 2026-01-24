@@ -29,7 +29,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/about"
-                    className="hover:text-foreground transition"
+                    className="hover:text-green-500 transition"
                   >
                     About us
                   </Link>
@@ -37,7 +37,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/fleet"
-                    className="hover:text-foreground transition"
+                    className="hover:text-green-500 transition"
                   >
                     Fleet
                   </Link>
@@ -45,7 +45,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/pricing"
-                    className="hover:text-foreground transition"
+                    className="hover:text-green-500 transition"
                   >
                     Prices
                   </Link>
@@ -60,7 +60,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/faq"
-                    className="hover:text-foreground transition"
+                    className="hover:text-green-500 transition"
                   >
                     FAQ
                   </Link>
@@ -68,7 +68,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/contact"
-                    className="hover:text-foreground transition"
+                    className="hover:text-green-500 transition"
                   >
                     Contact
                   </Link>
@@ -76,7 +76,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/terms"
-                    className="hover:text-foreground transition"
+                    className="hover:text-green-500 transition"
                   >
                     terms and conditions
                   </Link>
