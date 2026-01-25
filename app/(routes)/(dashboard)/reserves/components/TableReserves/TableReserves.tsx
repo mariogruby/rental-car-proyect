@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Table,
   TableBody,
@@ -20,7 +21,7 @@ export function TableReserves(props: TableReservesProps) {
 
   return (
     <div className="rounded-2xl border border-zinc-200 bg-white shadow-lg shadow-green-500/5 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10">
-      <div className="bg-gradient-to-r from-green-50 to-emerald-50/50 px-6 py-4 border-b border-zinc-100">
+      <div className="bg-linear-to-r from-green-50 to-emerald-50/50 px-6 py-4 border-b border-zinc-100">
         <div className="flex items-center gap-3">
           <div className="p-2 rounded-xl bg-green-100/80 text-green-600">
             <CalendarDays className="w-5 h-5" />
@@ -102,7 +103,7 @@ export function TableReserves(props: TableReservesProps) {
             </TableRow>
           ))}
         </TableBody>
-        <TableFooter className="bg-gradient-to-r from-green-100/80 to-emerald-100/60">
+        <TableFooter className="bg-linear-to-r from-green-100/80 to-emerald-100/60">
           <TableRow className="hover:bg-green-100/90 border-t-2 border-green-200/60">
             <TableCell
               colSpan={5}

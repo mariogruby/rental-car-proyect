@@ -18,7 +18,7 @@ export default function Features() {
         </Reveal>
 
         <Reveal position="right" delay={0.1}>
-          <h3 className="text-3xl lg:text-6xl font-bold bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 bg-clip-text text-transparent">
+          <h3 className="text-3xl lg:text-6xl font-bold bg-linear-to-r from-zinc-900 via-zinc-700 to-zinc-900 bg-clip-text text-transparent">
             Key Features
           </h3>
         </Reveal>
@@ -42,14 +42,14 @@ export default function Features() {
             >
               {/* Gradient overlay on hover */}
               <div
-                className="absolute inset-0 rounded-2xl bg-gradient-to-br from-green-50/50 to-transparent 
+                className="absolute inset-0 rounded-2xl bg-linear-to-br from-green-50/50 to-transparent 
                             opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               />
 
               <div className="relative flex flex-col items-center text-center">
                 {/* Icon container */}
                 <div
-                  className="relative mb-5 p-4 rounded-xl bg-gradient-to-br from-green-500/10 to-green-500/5 
+                  className="relative mb-5 p-4 rounded-xl bg-linear-to-br from-green-500/10 to-green-500/5 
                               border border-green-500/10 group-hover:border-green-500/30 
                               group-hover:shadow-md group-hover:shadow-green-500/10 
                               transition-all duration-300"
@@ -92,7 +92,7 @@ export default function Features() {
         <div className="flex justify-center mt-12 lg:mt-16">
           <div
             className="inline-flex items-center gap-3 px-6 py-3 rounded-full 
-                        bg-gradient-to-r from-green-50 to-white border border-green-100 
+                        bg-linear-to-r from-green-50 to-white border border-green-100 
                         shadow-sm hover:shadow-md hover:shadow-green-500/10 
                         transition-all duration-300"
           >

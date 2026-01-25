@@ -1,4 +1,4 @@
-// app/(public)/layout.tsx
+// home layout
 import { Footer } from "@/components/Shared/Footer";
 
 export default function PublicLayout({

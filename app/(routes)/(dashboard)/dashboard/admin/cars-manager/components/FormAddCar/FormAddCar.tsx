@@ -8,15 +8,12 @@ import {
   FormItem,
   FormLabel,
   FormControl,
-  FormDescription,
   FormMessage,
   Form,
 } from "@/components/ui/form";
 import {
   Field,
   FieldContent,
-  FieldDescription,
-  FieldError,
   FieldGroup,
   FieldLabel,
 } from "@/components/ui/field";
@@ -24,7 +21,6 @@ import {
   Select,
   SelectContent,
   SelectItem,
-  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -138,7 +134,7 @@ export function FormAddCar(props: FormAddCarProps) {
                   >
                     <SelectTrigger
                       id="form-rhf-select-language"
-                      className="min-w-[120px]"
+                      className="min-w-30"
                     >
                       <SelectValue placeholder="Select the type of car" />
                     </SelectTrigger>
@@ -169,7 +165,7 @@ export function FormAddCar(props: FormAddCarProps) {
                   >
                     <SelectTrigger
                       id="form-rhf-select-language"
-                      className="min-w-[120px]"
+                      className="min-w-30"
                     >
                       <SelectValue placeholder="Select of number of people" />
                     </SelectTrigger>
@@ -202,7 +198,7 @@ export function FormAddCar(props: FormAddCarProps) {
                   >
                     <SelectTrigger
                       id="form-rhf-select-language"
-                      className="min-w-[120px]"
+                      className="min-w-30"
                     >
                       <SelectValue placeholder="Select the engine of the car" />
                     </SelectTrigger>
@@ -235,7 +231,7 @@ export function FormAddCar(props: FormAddCarProps) {
                   >
                     <SelectTrigger
                       id="form-rhf-select-language"
-                      className="min-w-[120px]"
+                      className="min-w-30"
                     >
                       <SelectValue placeholder="Select the type of car" />
                     </SelectTrigger>
@@ -273,7 +269,7 @@ export function FormAddCar(props: FormAddCarProps) {
                       endpoint="photo"
                       onClientUploadComplete={(res) => {
                         form.setValue("photo", res?.[0].url, {
-                          shouldValidate: true, // 👈 CLAVE
+                          shouldValidate: true,
                           shouldDirty: true,
                         });
                         setPhotoUploaded(true);

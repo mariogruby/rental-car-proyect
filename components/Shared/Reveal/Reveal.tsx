@@ -2,7 +2,7 @@
 "use client";
 import { RevealProps } from "./Reveal.types";
 import { motion, useAnimation, useInView, Variants } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export const fadeIn = (position: string, delay?: number): Variants => {
   return {

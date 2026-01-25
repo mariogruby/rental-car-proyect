@@ -59,7 +59,7 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
   return isDesktop ? (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button className="bg-gradient-to-r from-green-500 to-green-600  hover:from-green-600 hover:to-green-700 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500">
+        <Button className="bg-linear-to-r from-green-500 to-green-600  hover:from-green-600 hover:to-green-700 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500">
           <Calendar className="w-4 h-4" />
           Add reservation
         </Button>
@@ -79,7 +79,7 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
             Cancel
           </AlertDialogCancel>
           <AlertDialogAction
-            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500"
+            className="bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500"
             onClick={() => onReserveCar(car, dateSelected)}
           >
             Continue
@@ -90,7 +90,7 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
   ) : (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full">
+        <Button className="bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full">
           <Calendar className="w-4 h-4" />
           Add reservation
         </Button>
@@ -112,7 +112,7 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
             </Button>
           </DrawerClose>
           <Button
-            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full"
+            className="bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full"
             onClick={() => onReserveCar(car, dateSelected)}
           >
             Continue

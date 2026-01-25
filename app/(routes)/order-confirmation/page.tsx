@@ -17,7 +17,9 @@ export default function orderConfirmationPage() {
           </p>
           <p>You are visualizing the order confirmation in your client area</p>
           <Link href="/">
-            <Button>Back to the homePage</Button>
+            <Button className="bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full">
+              Back to the Home page
+            </Button>
           </Link>
         </div>
       </div>

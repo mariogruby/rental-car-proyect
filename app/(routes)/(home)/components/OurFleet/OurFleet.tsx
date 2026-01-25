@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { MoveRight } from "lucide-react";
 import {
   categoryOurFleet,
   dataFirstBlockOurFleet,
@@ -7,7 +5,6 @@ import {
 } from "./OurFleet.data";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { Reveal } from "@/components/Shared/Reveal";
 
 export function OurFleet() {
@@ -27,7 +24,7 @@ export function OurFleet() {
             key={name}
             className={cn(
               "rounded-xl py-2 px-3",
-              active ? "bg-green-500 text-white" : "bg-slate-100"
+              active ? "bg-linear-to-r from-green-500 to-green-600 text-white" : "bg-slate-100"
             )}
           >
             {name}
@@ -39,7 +36,7 @@ export function OurFleet() {
           {dataFirstBlockOurFleet.map(({ url }) => (
             <div
               key={url}
-              className="relative overflow-hidden rounded-xl aspect-[4/3]"
+              className="relative overflow-hidden rounded-xl aspect-4/3"
             >
               <Image
                 src={`/images/fleetImages/${url}`}
@@ -56,7 +53,7 @@ export function OurFleet() {
           {dataSecondBlockOurFleet.map(({ url }) => (
             <div
               key={url}
-              className="relative overflow-hidden rounded-xl aspect-[4/3]"
+              className="relative overflow-hidden rounded-xl aspect-4/3"
             >
               <Image
                 src={`/images/fleetImages/${url}`}

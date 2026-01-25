@@ -23,7 +23,14 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={outfit.className}>
-          <NextTopLoader color="#22c55e" />
+          <NextTopLoader
+            color="#22c55e"
+            height={5}
+            showSpinner={false}
+             shadow="0 0 10px #22c55e,0 0 5px #22c55e"
+            template='<div class="bar" role="bar"><div class="peg"></div></div> 
+  <div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
+          />
           {children}
           <Toaster />
         </body>

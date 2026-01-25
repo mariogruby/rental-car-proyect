@@ -38,7 +38,7 @@ export function FirstBlock() {
       <Reveal className="flex justify-end relative" position="right">
         <motion.div
           style={{ x }}
-          className="w-full max-w-[800px] lg:max-w-none"
+          className="w-full max-w-200 lg:max-w-none"
         >
           <Image
             src="/images/peugeot-408-4d-white-2022.png"

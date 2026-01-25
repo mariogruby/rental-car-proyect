@@ -40,7 +40,7 @@ export function CalendarSelector(props: CalendarSelectorProps) {
   return (
     <div className={cn("grid gap-4", className)}>
       {date?.from && date?.to && (
-        <div className="rounded-2xl bg-gradient-to-br from-green-500/10 via-green-500/5 to-transparent border border-green-500/20 p-6 shadow-lg shadow-green-500/10 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20 hover:border-green-500/40">
+        <div className="rounded-2xl bg-linear-to-br from-green-500/10 via-green-500/5 to-transparent border border-green-500/20 p-6 shadow-lg shadow-green-500/10 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20 hover:border-green-500/40">
           <div className="flex items-center justify-between gap-4">
             <div className="space-y-1">
               <p className="text-sm font-medium text-muted-foreground">

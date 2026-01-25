@@ -10,7 +10,9 @@ export default function orderErrorPage() {
         <div className="flex flex-col items-center justify-center gap-4 text-center">
           <h1 className="text-2xl">There was an error with your order</h1>
           <Link href="/">
-            <Button> Back to the home page</Button>
+            <Button className="bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full">
+              Back to the Home page
+            </Button>
           </Link>
         </div>
       </div>

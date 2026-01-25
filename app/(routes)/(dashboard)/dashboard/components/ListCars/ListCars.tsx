@@ -35,7 +35,7 @@ export function ListCars({ cars }: ListCarsProps) {
             className="group overflow-hidden rounded-2xl bg-card border-border/40 shadow-lg shadow-black/5 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/10 hover:border-green-500/50 hover:-translate-y-1"
           >
             {/* IMAGE */}
-            <div className="relative aspect-[4/3] overflow-hidden bg-muted/5">
+            <div className="relative aspect-4/3 overflow-hidden bg-muted/5">
               <Image
                 src={photo || "/placeholder.svg"}
                 alt={name}
@@ -47,7 +47,7 @@ export function ListCars({ cars }: ListCarsProps) {
               <div className="absolute inset-0 duration-300" />
 
               <Badge
-                className="absolute top-4 left-4 bg-gradient-to-r from-green-500 to-green-600 
+                className="absolute top-4 left-4 bg-linear-to-r from-green-500 to-green-600 
                 hover:from-green-600 hover:to-green-700 text-white font-semibold px-3 py-1.5 shadow-lg shadow-green-500/30 transition-all duration-300 group-hover:scale-105 group-hover:shadow-green-500/50"
               >
                 {type}
@@ -78,7 +78,7 @@ export function ListCars({ cars }: ListCarsProps) {
               </button>
 
               <div
-                className="absolute bottom-4 right-4 rounded-xl bg-gradient-to-r from-green-500 to-green-600 
+                className="absolute bottom-4 right-4 rounded-xl bg-linear-to-r from-green-500 to-green-600 
                 hover:from-green-600 hover:to-green-700 px-4 py-2.5 shadow-md shadow-green-500/40 backdrop-blur-sm transition-all duration-300 group-hover:scale-105 group-hover:shadow-md group-hover:shadow-green-500/50"
               >
                 <span className="text-2xl font-bold text-white">

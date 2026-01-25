@@ -23,7 +23,7 @@ export function SliderBrands() {
           {brands.map(({ url }, index) => (
             <div
               key={`${url}-${index}`}
-              className="flex items-center justify-center h-[80px] md:h-[90px] lg:h-[100px] min-w-[150px]"
+              className="flex items-center justify-center h-20 md:h-22.5 lg:h-25 min-w-37.5"
             >
               <Image
                 src={`/images/brands/${url}`}

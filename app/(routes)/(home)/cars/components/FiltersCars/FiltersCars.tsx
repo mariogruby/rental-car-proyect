@@ -51,7 +51,7 @@ export function FiltersCars(props: FiltersCarsProps) {
   return (
     <div className="mt-5 mb-8">
       <div className="flex items-center gap-2 mb-4">
-        <div className="p-2 rounded-xl bg-gradient-to-br from-green-500 to-green-600 shadow-md shadow-green-500/25">
+        <div className="p-2 rounded-xl bg-linear-to-br from-green-500 to-green-600 shadow-md shadow-green-500/25">
           <SlidersHorizontal className="w-4 h-4 text-white" />
         </div>
         <span className="text-sm font-medium text-gray-600">
@@ -59,7 +59,7 @@ export function FiltersCars(props: FiltersCarsProps) {
         </span>
       </div>
 
-      <div className="p-4 rounded-2xl bg-gradient-to-br from-white to-green-50/30 border border-green-100 shadow-lg shadow-green-500/5 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10">
+      <div className="p-4 rounded-2xl bg-linear-to-br from-white to-green-50/30 border border-green-100 shadow-lg shadow-green-500/5 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10">
         <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:gap-4 md:items-center">
           {/* Type Select */}
           <div className="flex-1 group">
@@ -209,12 +209,12 @@ export function FiltersCars(props: FiltersCarsProps) {
           </div>
 
           {/* Clear Button */}
-          <div className="flex-shrink-0 pt-5">
+          <div className="shrink-0 pt-5">
             <Button
               onClick={clearFilters}
               className="
                 w-full md:w-auto
-                bg-gradient-to-r from-green-500 to-green-600 
+                bg-linear-to-r from-green-500 to-green-600 
                 hover:from-green-600 hover:to-green-700
                 text-white font-medium
                 rounded-2xl px-5 py-2.5

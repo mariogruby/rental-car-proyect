@@ -29,7 +29,8 @@ export function Marquee() {
       </p>
 
       <div className="relative z-20 flex flex-wrap items-center justify-center gap-4 pt-4">
-        <Button className="rounded-full bg-green-500 hover:bg-green-600 px-8 py-3 text-sm font-semibold text-white transition">
+        <Button className="rounded-full bg-linear-to-r from-green-500 to-green-600 
+                hover:from-green-600 hover:to-green-700 px-8 py-3 text-sm font-semibold text-white transition">
           Browse cars
         </Button>
 
