@@ -4,23 +4,27 @@ import { useLovedCars } from "@/hooks/use-loved-cars";
 import { Car } from "@/lib/generated/prisma/client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-  Fuel,
-  Heart,
-  Users,
-  Gauge,
-  Cog,
-  Check,
-} from "lucide-react";
+import Link from "next/link";
+import { Fuel, Heart, Users, Gauge, Cog, Check } from "lucide-react";
 import Image from "next/image";
 import { ModalAddReservation } from "@/components/Shared/ModalAddReservation";
+import { Button } from "@/components/ui/button";
 
 export function ListLovedCars() {
   const { lovedItems, addLovedItem, removeLovedItem } = useLovedCars();
   return (
     <>
       {lovedItems.length == 0 ? (
-        <h2>Not loved cars here</h2>
+        <div className="p-6 mx-auto max-w-xl">
+          <div className="flex flex-col items-center justify-center gap-4 text-center">
+            <h2>Not loved cars here</h2>
+            <Link href="/cars">
+              <Button className="bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full">
+                Cars list
+              </Button>
+            </Link>
+          </div>
+        </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
           {lovedItems.map((car: Car) => {

@@ -17,7 +17,7 @@ export default async function pageCars() {
     <div>
       <Navbar />
       <div>
-      <div className="p-6 mx-auto">
+      <div className="p-6 lg:p-20 mx-auto">
         <HeaderCars />
         <Separator/>
         <FiltersAndListCars cars={cars}/>

@@ -19,9 +19,11 @@ import { Heart, User, Car, LayoutDashboard } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useLovedCars } from "@/hooks/use-loved-cars";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { lovedItems } = useLovedCars();
 
   const navItems: NavItem[] = [
     {
@@ -59,10 +61,14 @@ export function Navbar() {
             <NavbarButton href="/loved-cars" variant="secondary">
               <Heart
                 strokeWidth={1}
-                className="cursor-pointer transition hover:text-green-500"
+                className={`cursor-pointer ${
+                  lovedItems.length > 0
+                    ? "fill-green-500 text-green-500"
+                    : "transition hover:text-green-500"
+                } `}
               />
             </NavbarButton>
-            <div>
+            <div className="pt-2">
               <UserButton />
             </div>
           </SignedIn>

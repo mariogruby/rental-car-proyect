@@ -21,13 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className={outfit.className}>
           <NextTopLoader
             color="#22c55e"
             height={5}
             showSpinner={false}
-             shadow="0 0 10px #22c55e,0 0 5px #22c55e"
+            shadow="0 0 10px #22c55e,0 0 5px #22c55e"
             template='<div class="bar" role="bar"><div class="peg"></div></div> 
   <div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
           />

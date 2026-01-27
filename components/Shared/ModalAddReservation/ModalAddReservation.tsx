@@ -25,7 +25,7 @@ import {
 } from "@/components/ui/drawer";
 import { Car } from "@/lib/generated/prisma/client";
 import { CalendarSelector } from "./CalendarSelector";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { addDays } from "date-fns";
 import { DateRange } from "react-day-picker";
 import { useMediaQuery } from "@/hooks/use-media-query";
@@ -43,6 +43,15 @@ export function ModalAddReservation(props: ModalAddReservationProps) {
     from: new Date(),
     to: addDays(new Date(), 5),
   });
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   const onReserveCar = async (car: Car, dateSelected: DateRange) => {
     const res = await axios.post("/api/checkout", {

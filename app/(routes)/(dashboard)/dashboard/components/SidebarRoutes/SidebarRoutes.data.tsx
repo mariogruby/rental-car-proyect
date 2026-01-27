@@ -3,11 +3,11 @@ import {
   Calendar,
   Heart,
   ArrowLeft,
-  Settings,
-  Users,
   SquareChartGantt,
 } from "lucide-react";
 import type { SidebarItemsProps } from "./SidebarItem/SidebarItem.types";
+import { SignOutButton } from "@clerk/nextjs";
+
 
 export interface SidebarSection {
   title: string;
@@ -60,16 +60,19 @@ export const sidebarSections: SidebarSection[] = [
       },
     ],
   },
-  {
-    title: "Account",
-    items: [
-      {
-        label: "Logout",
-        href: "/login",
-        icon: (
-          <ArrowLeft className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />
-        ),
-      },
-    ],
-  },
+  // {
+  //   title: "Account",
+  //   items: [
+  //     {
+  //       label: "Logout",
+  //       icon: (
+  //         <div className="cursor-pointer">
+  //         <SignOutButton redirectUrl="/">
+  //           <ArrowLeft className="h-5 w-5 ml-1 shrink-0 text-neutral-700 dark:text-neutral-200" />
+  //         </SignOutButton>
+  //         </div>
+  //       ),
+  //     },
+  //   ],
+  // },
 ];

@@ -60,7 +60,7 @@ export function FiltersCars(props: FiltersCarsProps) {
       </div>
 
       <div className="p-4 rounded-2xl bg-linear-to-br from-white to-green-50/30 border border-green-100 shadow-lg shadow-green-500/5 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10">
-        <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:gap-4 md:items-center">
+        <div className="flex flex-col gap-4 md:flex-row md:flex-wrap md:items-end">
           {/* Type Select */}
           <div className="flex-1 group">
             <div className="flex items-center gap-1.5 mb-1.5">
@@ -209,7 +209,7 @@ export function FiltersCars(props: FiltersCarsProps) {
           </div>
 
           {/* Clear Button */}
-          <div className="shrink-0 pt-5">
+          <div className="w-full md:w-auto md:self-end">
             <Button
               onClick={clearFilters}
               className="

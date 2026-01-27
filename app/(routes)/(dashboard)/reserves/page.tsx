@@ -27,7 +27,9 @@ export default async function pageReserves() {
           <h2 className="text-xl">Not orders here</h2>
           <p>place your orders through the order page</p>
           <Link href="/cars">
-            <Button>List cars</Button>
+            <Button className="bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full">
+              Cars list
+            </Button>
           </Link>
         </div>
       ) : (
