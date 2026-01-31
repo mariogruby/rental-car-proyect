@@ -1,20 +1,19 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import {
-  Car,
-  Edit,
   Fuel,
   Gauge,
   Gem,
   Loader2,
-  Trash,
   Upload,
   Users,
+  CheckCircle,
+  XCircle,
+  Sparkles,
 } from "lucide-react";
-import { IconEngine, IconManualGearbox } from "@tabler/icons-react";
+import { IconManualGearbox } from "@tabler/icons-react";
 import Image from "next/image";
 import { CardCardProps } from "./CardCar.types";
 import { ButtonEditCar } from "./ButtonEditCar";
@@ -38,7 +37,7 @@ export function CardCar(props: CardCardProps) {
       });
 
       toast[publish ? "success" : "info"](
-        publish ? "car published" : "car unpublished"
+        publish ? "Car published successfully" : "Car unpublished"
       );
 
       router.refresh();
@@ -51,65 +50,102 @@ export function CardCar(props: CardCardProps) {
   };
 
   return (
-    <div className="relative p-1 bg-white rounded-4xl shadow-sm hover:shadow-lg">
-      <Image
-        src={car.photo}
-        alt={car.name}
-        width={400}
-        height={600}
-        className="rounded-lg"
-      />
+    <div className="group relative bg-white rounded-2xl shadow-md hover:shadow-xl hover:shadow-green-100/50 transition-all duration-500 overflow-hidden border border-gray-100 hover:border-green-200 hover:-translate-y-1">
+      {/* Status Banner */}
       {car.isPublish ? (
-        <p className="absolute top-0 right-0 w-full p-1 text-center text-white bg-green-500 rounded-t-4xl">
+        <div className="absolute top-0 left-0 right-0 z-10 bg-linear-to-r from-green-500 via-green-400 to-green-500 text-white py-2 px-4 flex items-center justify-center gap-2 text-sm font-medium">
+          <CheckCircle className="w-4 h-4" />
           Published
-        </p>
+          <Sparkles className="w-3 h-3 animate-pulse" />
+        </div>
       ) : (
-        <p className="absolute top-0 left-0 right-0 w-full p-1 text-center text-white bg-destructive rounded-t-4xl">
+        <div className="absolute top-0 left-0 right-0 z-10 bg-linear-to-r from-red-500 via-red-400 to-red-500 text-white py-2 px-4 flex items-center justify-center gap-2 text-sm font-medium">
+          <XCircle className="w-4 h-4" />
           Not Published
-        </p>
+        </div>
       )}
-      <div className="relative p-3">
-        <div className="flex flex-col mb-3 gap-x-4">
-          <p className="text-xl min-h-16 lg:min-h-fit">{car.name}</p>
-          <p>{car.priceDay}€/day</p>
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
-          <p className="flex items-center">
-            <IconManualGearbox className="h-2-4 w-4 mr-2" strokeWidth={1} />
-            {car.transmission}
-          </p>
+      {/* Image Container */}
+      <div className="relative pt-10 overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-t from-white via-transparent to-transparent z-1 pointer-events-none" />
+        <Image
+          src={car.photo || "/placeholder.svg"}
+          alt={car.name}
+          width={400}
+          height={300}
+          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+        />
 
-          <p className="flex items-center">
-            <Users className="h-2-4 w-4 mr-2" strokeWidth={1} />
-            {car.people}
-          </p>
-
-          <p className="flex items-center">
-            <Fuel className="h-2-4 w-4 mr-2" strokeWidth={1} />
-            {car.engine}
-          </p>
-
-          <p className="flex items-center">
-            <Gauge className="h-2-4 w-4 mr-2" strokeWidth={1} />
-            {car.cv}
-          </p>
-
-          <p className="flex items-center">
-            <Gem className="h-2-4 w-4 mr-2" strokeWidth={1} />
+        {/* Type Badge */}
+        <div className="absolute bottom-3 right-3 z-2">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/90 backdrop-blur-sm text-green-700 text-xs font-medium rounded-full border border-green-200 shadow-sm">
+            <Gem className="w-3 h-3" />
             {car.type}
-          </p>
+          </span>
         </div>
-        <div className="flex justify-between mt-3 gap-4-x-4">
+      </div>
+
+      {/* Content */}
+      <div className="p-5 space-y-4">
+        {/* Title & Price */}
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-green-700 transition-colors duration-300 line-clamp-2">
+            {car.name}
+          </h3>
+          <div className="flex flex-col items-end shrink-0">
+            <span className="text-2xl font-bold text-green-600">
+              {car.priceDay}€
+            </span>
+            <span className="text-xs text-gray-500">/day</span>
+          </div>
+        </div>
+
+        {/* Specs Grid */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="flex items-center gap-2 px-3 py-2 bg-gray-50 rounded-xl border border-gray-100 group-hover:border-green-100 group-hover:bg-green-50/30 transition-all duration-300">
+            <div className="p-1.5 bg-white rounded-lg shadow-sm">
+              <IconManualGearbox
+                className="h-4 w-4 text-green-600"
+                strokeWidth={1.5}
+              />
+            </div>
+            <span className="text-sm text-gray-600">{car.transmission}</span>
+          </div>
+
+          <div className="flex items-center gap-2 px-3 py-2 bg-gray-50 rounded-xl border border-gray-100 group-hover:border-green-100 group-hover:bg-green-50/30 transition-all duration-300">
+            <div className="p-1.5 bg-white rounded-lg shadow-sm">
+              <Users className="h-4 w-4 text-green-600" strokeWidth={1.5} />
+            </div>
+            <span className="text-sm text-gray-600">{car.people} seats</span>
+          </div>
+
+          <div className="flex items-center gap-2 px-3 py-2 bg-gray-50 rounded-xl border border-gray-100 group-hover:border-green-100 group-hover:bg-green-50/30 transition-all duration-300">
+            <div className="p-1.5 bg-white rounded-lg shadow-sm">
+              <Fuel className="h-4 w-4 text-green-600" strokeWidth={1.5} />
+            </div>
+            <span className="text-sm text-gray-600">{car.engine}</span>
+          </div>
+
+          <div className="flex items-center gap-2 px-3 py-2 bg-gray-50 rounded-xl border border-gray-100 group-hover:border-green-100 group-hover:bg-green-50/30 transition-all duration-300">
+            <div className="p-1.5 bg-white rounded-lg shadow-sm">
+              <Gauge className="h-4 w-4 text-green-600" strokeWidth={1.5} />
+            </div>
+            <span className="text-sm text-gray-600">{car.cv} CV</span>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex gap-3 pt-2">
           <ButtonDeleteCar carData={car} />
           <ButtonEditCar carData={car} />
         </div>
 
+        {/* Publish Button */}
         {car.isPublish ? (
           <Button
             disabled={loading}
-            className="bg-green-500 hover:bg-green-500 w-full mt-3 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500"
             onClick={() => handlePublishCar(false)}
+            className="w-full bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-xl py-5 font-medium shadow-lg shadow-green-200/50 hover:shadow-green-300/50 transition-all duration-300 group/btn"
           >
             {loading ? (
               <>
@@ -118,16 +154,16 @@ export function CardCar(props: CardCardProps) {
               </>
             ) : (
               <>
+                <Upload className="w-4 h-4 mr-2 transition-transform duration-300 group-hover/btn:-translate-y-0.5" />
                 Unpublish
-                <Upload className="w-4 h-4 ml-2" />
               </>
             )}
           </Button>
         ) : (
           <Button
             disabled={loading}
-            className="bg-green-500 hover:bg-green-500 w-full mt-3 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500"
             onClick={() => handlePublishCar(true)}
+            className="w-full bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-xl py-5 font-medium shadow-lg shadow-green-200/50 hover:shadow-green-300/50 transition-all duration-300 group/btn"
           >
             {loading ? (
               <>
@@ -136,76 +172,16 @@ export function CardCar(props: CardCardProps) {
               </>
             ) : (
               <>
+                <Upload className="w-4 h-4 mr-2 transition-transform duration-300 group-hover/btn:-translate-y-0.5" />
                 Publish
-                <Upload className="w-4 h-4 ml-2" />
               </>
             )}
           </Button>
         )}
       </div>
+
+      {/* Decorative bottom line */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-green-400 via-green-500 to-green-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
     </div>
   );
 }
-// <Card className="group overflow-hidden border-border/50 transition-all duration-300 hover:shadow-xl hover:border-accent/50">
-//   <div className="relative aspect-[3/2] overflow-hidden">
-//     <Image
-//       src={car.photo || "/placeholder.svg"}
-//       alt={car.name}
-//       fill
-//       className="object-cover transition-transform duration-500 group-hover:scale-110"
-//     />
-//     {/* <Badge className="absolute top-4 left-4 bg-accent text-accent-foreground border-0">
-//       {car.type}
-//     </Badge> */}
-//   </div>
-
-//   <CardContent className="p-6 space-y-4">
-//     <div className="space-y-2">
-//       <h3 className="text-2xl font-semibold tracking-tight text-balance">
-//         {car.name}
-//       </h3>
-
-//       <div className="flex items-center gap-4 text-sm text-muted-foreground">
-//         <div className="flex items-center gap-1.5">
-//           <IconManualGearbox className="h-4 w-4" />
-//           <span>{car.transmission}</span>
-//         </div>
-//         <div className="flex items-center gap-1.5">
-//           <Users className="h-4 w-4" />
-//           <span>{car.people}</span>
-//         </div>
-//         {/* <div className="flex items-center gap-1.5">
-//           <Luggage className="h-4 w-4" />
-//           <span>{car.specs.luggage} maletas</span>
-//         </div> */}
-//         <div className="flex items-center gap-1.5">
-//           <IconEngine className="h-4 w-4" />
-//           <span>{car.engine}</span>
-//         </div>
-//         <div className="flex items-center gap-1.5">
-//           <Gauge className="h-4 w-4" />
-//           <span>{car.cv}cv</span>
-//         </div>
-//       </div>
-//     </div>
-
-//     {/* <div className="flex flex-wrap gap-2">
-//         <Badge
-//           variant="secondary"
-//           className="text-xs font-normal"
-//         >
-//           {car.engine}
-//         </Badge>
-//     </div> */}
-//     <div className="space-y-1">
-//       <p className="text-sm text-muted-foreground">From</p>
-//       <div className="flex items-baseline gap-1">
-//         <span className="text-3xl font-bold">€{car.priceDay}</span>
-//         <span className="text-sm text-muted-foreground">/day</span>
-//       </div>
-//     </div>
-//   </CardContent>
-
-//   <CardFooter className="flex justify-between gap-x-4">
-//   </CardFooter>
-// </Card>

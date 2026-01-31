@@ -78,7 +78,7 @@ export function Footer() {
                     href="/terms"
                     className="hover:text-green-500 transition"
                   >
-                    terms and conditions
+                    Terms and conditions
                   </Link>
                 </li>
               </ul>

@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import prisma from "@/lib/db";
 import { ListCars } from "./components/ListCars";
+import { isAdmin } from "@/lib/isAdmin";
 
 export default async function DashboardPage() {
   const { userId } = await auth();

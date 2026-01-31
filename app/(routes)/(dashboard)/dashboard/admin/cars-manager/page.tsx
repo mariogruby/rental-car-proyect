@@ -1,12 +1,16 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { ButtonAddCar } from "./components/ButtonAddCar";
 import { ListCars } from "./components/ListCars";
 import { redirect } from "next/navigation";
 import prisma from "@/lib/db";
+import { isAdmin } from "@/lib/isAdmin";
 
 export default async function CarsManagerPage() {
   const { userId } = await auth();
-  if (!userId) return redirect("/");
+
+  const user = await currentUser();
+
+  if (!userId || !user || !isAdmin(userId)) return redirect("/");
 
   const cars = await prisma.car.findMany({
     where: {

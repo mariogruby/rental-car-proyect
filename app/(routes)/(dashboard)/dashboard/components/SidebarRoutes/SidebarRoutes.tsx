@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React, { useEffect, useState } from "react";
 import { SidebarItem } from "./SidebarItem";
@@ -34,7 +35,7 @@ export function SidebarRoutes({
 
   return (
     <>
-      {filteredSections.map((section, sectionIdx) => (
+      {filteredSections.map((section, _sectionIdx) => (
         <div key={section.title} className="flex flex-col gap-2">
           {open && (
             <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mt-6 mb-2 px-4">
