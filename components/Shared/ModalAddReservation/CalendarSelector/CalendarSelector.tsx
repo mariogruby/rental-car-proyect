@@ -21,12 +21,14 @@ export function CalendarSelector(props: CalendarSelectorProps) {
     to: addDays(new Date(), 5),
   });
 
-  useEffect(() => {
-    setDateSelected({
-      from: new Date(),
-      to: addDays(new Date(), 5),
-    });
-  }, [date]);
+useEffect(() => {
+    if (date?.from && date?.to) {
+      setDateSelected({
+        from: date.from,
+        to: date.to,
+      });
+    }
+  }, [date, setDateSelected]);
 
   const calculateDaysBetween = (from: Date, to: Date): number => {
     const oneDay = 24 * 60 * 60 * 1000;

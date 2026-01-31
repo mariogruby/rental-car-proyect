@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import Stripe from "stripe";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 import prisma from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
@@ -11,20 +10,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
-export async function POST(
-  req: Request,
-  {
-    params,
-  }: {
-    params: {
-      carId: string;
-      priceDay: string;
-      startDate: string;
-      endDate: string;
-      carName: string;
-    };
-  }
-) {
+export async function POST(req: NextRequest) {
   const { userId } = await auth();
   const { carId, priceDay, startDate, endDate, carName } = await req.json();
 
