@@ -10,6 +10,7 @@ import { ListCarsProps } from "./ListCars.types";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SkeletonCars } from "@/components/Shared/SkeletonCars";
+import Link from "next/link";
 
 export function ListCars(props: ListCarsProps) {
   const { cars } = props;
@@ -125,9 +126,11 @@ export function ListCars(props: ListCarsProps) {
                   {userId ? (
                     <ModalAddReservation car={car} />
                   ) : (
-                    <Button className="bg-green-500 hover:bg-green-500 rounded-full ring-offset-2 hover:ring-2 hover:ring-green-500">
+                    <Link href="/sign-in">
+                    <Button className="w-full bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 rounded-full">
                       Sign in to reserve
                     </Button>
+                    </Link>
                   )}
                 </div>
               </CardContent>
