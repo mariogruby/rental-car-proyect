@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import Image from "next/image";
 import { useRef } from "react";
 import { Reveal } from "@/components/Shared/Reveal";
@@ -11,13 +12,15 @@ export function FirstBlock() {
   const words = `Don't deny yourself the pleasure of driving the best premium cars from around the world here and now`;
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery("(max-width: 640px)");
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["50%", "-30%"]);
+  const xTransform = useTransform(scrollYProgress, [0, 1], ["50%", "-30%"]);
+  const x = isMobile ? "0%" : xTransform;
 
   return (
     <div
